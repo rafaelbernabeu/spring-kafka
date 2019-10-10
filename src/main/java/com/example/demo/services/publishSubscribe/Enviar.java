@@ -1,6 +1,6 @@
 package com.example.demo.services.publishSubscribe;
 
-import com.example.demo.services.XmlProvider.XmlService;
+import com.example.demo.services.xmlProvider.XmlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;

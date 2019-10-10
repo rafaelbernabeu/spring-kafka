@@ -1,4 +1,4 @@
-package com.example.demo.services.XmlProvider;
+package com.example.demo.services.xmlProvider;
 
 import org.springframework.stereotype.Service;
 
