@@ -1,4 +1,4 @@
-package com.example.demo.conf;
+package com.example.demo.conf.kafka.producer;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -12,21 +12,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class KfkConfiguration {
-
-    @Bean
-    public ProducerFactory<Integer, String> producerFactory() {
-        return new DefaultKafkaProducerFactory<>(producerConfigs());
-    }
+public class ProducerConfiguration {
 
     @Bean
     public Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<>();
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092,localhost:9093,localhost:9094");
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.18.0.2:9092,172.18.0.2:9093,172.18.0.2:9094");
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         // See https://kafka.apache.org/documentation/#producerconfigs for more properties
         return props;
+    }
+
+    @Bean
+    public ProducerFactory<Integer, String> producerFactory() {
+        return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
     @Bean
